@@ -15,14 +15,12 @@ $show_complete_tasks = rand(0, 1);
 
 <body>
 <h1 class="visually-hidden">Дела в порядке</h1>
-
 <div class="page-wrapper">
     <div class="container container--with-sidebar">
         <header class="main-header">
             <a href="/">
                 <img src="img/logo.png" width="153" height="42" alt="Логотип Дела в порядке">
             </a>
-
             <div class="main-header__side">
                 <a class="main-header__side-item button button--plus open-modal" href="pages/form-task.html">Добавить задачу</a>
 
