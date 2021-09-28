@@ -63,6 +63,7 @@ function my_func_elements($taskinfo, $project) {
 
   $number_of_elements = $number_of_elements + 1;
 
+
   }
 
 
