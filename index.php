@@ -1,9 +1,8 @@
 <?php
 
-require_once('helpers.php');
+date_default_timezone_set('Europe/Moscow');
 
-require_once('function.php');
-
+$current_timestamp = time();
 
 $user_name = 'Константин';
 
@@ -15,7 +14,7 @@ $taskinfo = [
 
 [
       'task'  => 'Собеседование в IT компании' ,
-      'datecom' => '01.12.2019' ,
+      'datecom' => '15.10.2021' ,
       'cat' => 'Работа' ,
       'done' => 'false'
 
@@ -23,21 +22,21 @@ $taskinfo = [
 
 [
      'task'  => 'Выполнить тестовое задание' ,
-     'datecom' => '25.12.2019' ,
+     'datecom' => '05.10.2021' ,
      'cat' => 'Работа' ,
      'done' => 'false'
 ],
 
 [
      'task'  => 'Сделать задание первого раздела' ,
-     'datecom' => '21.12.2019' ,
+     'datecom' => '21.12.2021' ,
      'cat' => 'Учеба' ,
      'done' => 'true'
 ],
 
  [
      'task'  => 'Встреча с другом' ,
-     'datecom' => '22.12.2019' ,
+     'datecom' => '22.12.2021' ,
      'cat' => 'Входящие' ,
      'done' => 'false'
 ],
@@ -58,11 +57,13 @@ $taskinfo = [
 
 ];
 
+require_once('helpers.php');
+
+require_once('function.php');
 
 
 
-
-$mainContent = include_template('main.php',['projectlist' => $projectlist, 'taskinfo'=> $taskinfo, 'show_complete_tasks' => $show_complete_tasks]);
+$mainContent = include_template('main.php',['projectlist' => $projectlist, 'taskinfo'=> $taskinfo, 'show_complete_tasks' => $show_complete_tasks, 'current_timestamp' => $current_timestamp]);
 
 print(include_template('layout.php', ['title' => 'Дела в порядке', 'content' => $mainContent, 'user_name' => $user_name]));
 

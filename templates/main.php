@@ -48,9 +48,16 @@
 
         <?php foreach ($taskinfo as $taskin): ?>
 
+
+            <?php $ny_date = strtotime($taskin['datecom']); ?>
+
+
+             <?php $imp_date = floor(($ny_date - $current_timestamp)/3600); ?>
+
+
             <?php if($taskin['done'] == 'true' && $show_complete_tasks == 0) continue; ?>
 
-            <tr class="tasks__item task <?php if($taskin['done'] == 'true'): ?>task--completed<?php endif; ?>">
+            <tr class="tasks__item task <?php if($taskin['done'] == 'true'): ?>task--completed<?php endif; ?><?php if($imp_date <= 24 && $ny_date != false): ?>task--important<?php endif; ?>">
 
                 <td class="task__select">
                     <label class="checkbox task__checkbox">
@@ -65,7 +72,6 @@
 
                 <td class="task__date"><?= htmlspecialchars($taskin['datecom']);?></td>
             </tr>
-
 
 
 
