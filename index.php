@@ -2,7 +2,9 @@
 
 date_default_timezone_set('Europe/Moscow');
 
-$current_timestamp = time();
+const HDAY = 24;
+
+
 
 $user_name = 'Константин';
 
@@ -14,7 +16,7 @@ $taskinfo = [
 
 [
       'task'  => 'Собеседование в IT компании' ,
-      'datecom' => '15.10.2021' ,
+      'datecom' => '06.10.2021' ,
       'cat' => 'Работа' ,
       'done' => 'false'
 
@@ -63,7 +65,7 @@ require_once('function.php');
 
 
 
-$mainContent = include_template('main.php',['projectlist' => $projectlist, 'taskinfo'=> $taskinfo, 'show_complete_tasks' => $show_complete_tasks, 'current_timestamp' => $current_timestamp]);
+$mainContent = include_template('main.php',['projectlist' => $projectlist, 'taskinfo'=> $taskinfo, 'show_complete_tasks' => $show_complete_tasks]);
 
 print(include_template('layout.php', ['title' => 'Дела в порядке', 'content' => $mainContent, 'user_name' => $user_name]));
 
