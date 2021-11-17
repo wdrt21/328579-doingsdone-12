@@ -1,12 +1,58 @@
 <?php
 
-function my_func_elements($taskinfo, $project) {
+//Функция соощения об ошибке при подключении к базе
+
+function checkdberr($lik, $result) {
+
+    if (!$result) {
+        print('Ошибка MySQL ' . mysqli_error($link));
+        die();
+    }
+}
+
+//Функция подключения к базе данных
+
+function connectdb($host, $user, $pass, $dbname) {
+
+    $lnk = mysqli_connect($host, $user, $pass, $dbname );
+    mysqli_set_charset($lnk, "utf8");
+    checkdberr($lnk, $lnk);
+    return $lnk;
+
+
+}
+
+//Функция берет прожект лист из базы по юзерайди
+
+function getprojectlist($link, $userID) {
+
+    $sql = "SELECT * FROM projects WHERE user_id = $userID";
+    $result = mysqli_query($link, $sql);
+    $list = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $list;
+
+}
+
+//Функиця берет задачи из базы по юзерайди
+
+function getprojecttask($link, $userID) {
+
+    $sql = "SELECT * FROM task WHERE user_id = $userID";;
+    $result = mysqli_query($link, $sql);
+    $list = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $list;
+
+}
+
+//Функиця считает кол-во задач в каждом проекте для указанного пользователя
+
+function my_func_elements($taskinfo, $userID) {
 
     $number_of_elements = 0;
 
     foreach ($taskinfo as $task) {
 
-        if($task['cat'] == $project)  {
+        if($task['proeject_id'] == $userID)  {
 
             $number_of_elements = $number_of_elements + 1;
 

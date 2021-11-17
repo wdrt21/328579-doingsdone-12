@@ -5,7 +5,7 @@ CREATE DATABASE IF NOT EXISTS todo
 USE todo;
 
 CREATE TABLE IF NOT EXISTS projects (
-                                      id INT AUTO_INCREMENT PRIMARY KEY,
+                                      id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                       name VARCHAR(255) NOT NULL ,
                                       user_id INT NOT NULL
 
