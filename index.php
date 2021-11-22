@@ -5,11 +5,12 @@ date_default_timezone_set('Europe/Moscow');
 const HDAY = 24;
 
 $user_name = 'Константин';
-
+require_once('config.php');
+require_once('db_functions.php');
 require_once('helpers.php');
 require_once('function.php');
 
-$connect = connectdb('localhost', 'root', '1234', 'todo');
+
 
 $userID = 1;
 

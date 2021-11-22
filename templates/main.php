@@ -50,9 +50,9 @@
         <?php foreach ($taskinfo as $taskin): ?>
 
 
-            <?php if($taskin['data_exp'] == 'true' && $show_complete_tasks == 0) continue; ?>
+            <?php if($taskin['date_expired'] == 'true' && $show_complete_tasks == 0) continue; ?>
 
-            <tr class="tasks__item task <?php if($taskin['data_exp'] == 'true'): ?>task--completed<?php endif; ?><?php if(my_rem_hours($taskin['data_exp']) == true): ?>task--important<?php endif; ?>">
+            <tr class="tasks__item task <?php if($taskin['date_expired'] == 'true'): ?>task--completed<?php endif; ?><?php if(my_rem_hours($taskin['date_expired']) == true): ?>task--important<?php endif; ?>">
 
                 <td class="task__select">
                     <label class="checkbox task__checkbox">
@@ -65,7 +65,7 @@
                     <a class="download-link" href="#">Home.psd</a>
                 </td>
 
-                <td class="task__date"><?= htmlspecialchars($taskin['data_exp']);?></td>
+                <td class="task__date"><?= htmlspecialchars($taskin['date_expired']);?></td>
             </tr>
 
 

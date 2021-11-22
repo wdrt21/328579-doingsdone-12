@@ -1,26 +1,6 @@
 <?php
 
-//Функция соощения об ошибке при подключении к базе
 
-function checkdberr($lik, $result) {
-
-    if (!$result) {
-        print('Ошибка MySQL ' . mysqli_error($link));
-        die();
-    }
-}
-
-//Функция подключения к базе данных
-
-function connectdb($host, $user, $pass, $dbname) {
-
-    $lnk = mysqli_connect($host, $user, $pass, $dbname );
-    mysqli_set_charset($lnk, "utf8");
-    checkdberr($lnk, $lnk);
-    return $lnk;
-
-
-}
 
 //Функция берет прожект лист из базы по юзерайди
 
@@ -52,7 +32,7 @@ function my_func_elements($taskinfo, $userID) {
 
     foreach ($taskinfo as $task) {
 
-        if($task['proeject_id'] == $userID)  {
+        if($task['project_id'] == $userID)  {
 
             $number_of_elements = $number_of_elements + 1;
 
